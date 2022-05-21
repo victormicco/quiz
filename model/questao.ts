@@ -1,4 +1,6 @@
 import RespostaModel from "./resposta";
+import { embaralhar } from "../functions/arrays";
+
 export default class QuestaoModel {
   #id: number;
   #enunciado: string;
@@ -37,6 +39,17 @@ export default class QuestaoModel {
     return false;
   }
 
+  //responderCom(indice: number): QuestaoModel {}
+
+  embaralharRespostas(): QuestaoModel {
+    let respostasEmbaralhadas = embaralhar(this.#respostas);
+    return new QuestaoModel(
+      this.#id,
+      this.#enunciado,
+      respostasEmbaralhadas,
+      this.#acertou
+    );
+  }
   paraObjeto() {
     return {
       id: this.#id,
