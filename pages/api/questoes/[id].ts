@@ -10,6 +10,7 @@ export default (req, res) => {
   );
   if (unicaQuestaoOuNada.length === 1) {
     const questaoSelecionada = unicaQuestaoOuNada[0].embaralharRespostas();
+
     res.status(200).json(questaoSelecionada.paraObjeto());
   } else {
     res.status(204).send();
